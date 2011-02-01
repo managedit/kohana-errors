@@ -9,6 +9,8 @@
  * @license    http://kohanaframework.org/license
  */
 class Kohana_Controller_Errors extends Controller {
+	protected $failed_request;
+	protected $exception;
 
 	public function before()
 	{
@@ -18,11 +20,14 @@ class Kohana_Controller_Errors extends Controller {
 		{
 			$this->request->action('invalid');
 		}
+
+		$this->failed_request = $this->request->post('request');
+		$this->exception = $this->request->post('exception');
 	}
 
 	public function action_invalid()
 	{
-		Kohana_Exception::handler($this->request->post('exception'));
+		Kohana_Exception::handler($this->exception);
 		exit(1);
 	}
 }
