@@ -16,12 +16,15 @@
 
 # Example Error Controller
 
+This controller should handle each of the error types you want "pretty error pages" for. This example controller only covers 404/401 errors.
+
 	class Controller_Errors extends Kohana_Controller_Errors {
 		public function action_404()
 		{
 			$requested_url = $this->failed_request->url();
 			$error_message = $this->exception->getMessage();
 
+			# Do whatever you like here .. this could use your site template for example
 			$this->response->status(404);
 			$this->response->body(View::factory('errors/404', array('requested_url' => $requested_url, 'error_message' => $error_message));
 		}
