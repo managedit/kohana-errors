@@ -27,4 +27,13 @@
 		}
 	}
 
+# Example 404 View
 
+	<html>
+		<head>
+			<title>404 - Page not found</title>
+		</head>
+		<body>
+			<p>The requested URL (<?php echo $requested_url; ?>) could not be found, the error message was <?php echo $error_message; ?></p>
+		</body>
+	</html>
