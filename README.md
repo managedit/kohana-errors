@@ -1,3 +1,8 @@
+# Kohana Error Handling
+
+* Version 0.1.0
+* Compatible Kohana Version: 3.1.x
+
 # Example Application Controller
 
 	class Controller_Users extends Controller {
