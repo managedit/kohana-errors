@@ -20,9 +20,16 @@ class Error {
 				$code = 500;
 			}
 
-			echo Request::factory(Route::get('error')->uri(array('action' => $code)))
-				->post('exception', $e)
-				->execute()
+			$request = Request::factory(Route::get('error')->uri(array('action' => $code)))
+				->post('exception', $e);
+			
+			if (Request::failed() !== NULL)
+			{
+				$request = $request->post('request', Request::failed());
+				Request::$failed = NULL;
+			}
+
+			echo $request->execute()
 				->send_headers()
 				->body();
 
