@@ -34,6 +34,6 @@ class Kohana_Controller_Errors extends Controller {
 	public function action_invalid()
 	{
 		$this->response->status(500);
-		$this->response->body(View::factory('errors/invalid', array('code' => $this->exception->getCode())));
+		$this->response->body(View::factory('errors/invalid', array('code' => $this->exception->getCode(), 'message' => $this->exception->getMessage())));
 	}
 }
