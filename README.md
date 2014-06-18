@@ -31,7 +31,7 @@ This controller should handle each of the error types you want "pretty error pag
 
 			# Do whatever you like here .. this could use your site template for example
 			$this->response->status(404);
-			$this->response->body(View::factory('errors/404', array('requested_url' => $requested_url, 'error_message' => $error_message));
+			$this->response->body(View::factory('errors/404', array('requested_url' => $requested_url, 'error_message' => $error_message)));
 		}
 	}
 
